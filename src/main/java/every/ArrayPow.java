@@ -1,5 +1,7 @@
+package every;
+
 public class ArrayPow {
-    //鍙屾寚閽堢殑鎬濊矾
+    //双指针的思路
     public int[] sortedSquares(int[] A) {
         int n=A.length;
         int[] ans=new int[n];
