@@ -14,6 +14,8 @@ package every;
  *
  * -----------------------------------------------------------------------------------------------------
  * 分析：双指针方式，从数组第二个到倒数第二个为山顶，依次判断其长度
+ *
+ * https://leetcode-cn.com/problems/longest-mountain-in-array/
  */
 public class LongestMountain {
     public int longestMountain(int[] A) {
