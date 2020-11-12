@@ -30,8 +30,8 @@ public class  SortArrayByParity {
         int[] result = new int[A.length];
         int dou = 0;
         int sin = 1;
-        for(int i : A) {
-            if(i % 2 == 0) {
+        for (int i : A) {
+            if (i % 2 == 0) {
                 result[dou] = i;
                 dou += 2;
             } else {
