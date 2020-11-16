@@ -16,13 +16,13 @@ package tree;
  * <p>
  * 链接：https://leetcode-cn.com/problems/populating-next-right-pointers-in-each-node
  */
+
 class Node {
     int val;
     Node left;
     Node right;
     Node next;
 }
-
 public class ConnectTree {
     public Node connect(Node root) {
         if (root == null) {
