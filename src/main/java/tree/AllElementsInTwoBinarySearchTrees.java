@@ -25,6 +25,11 @@ import java.util.List;
  * 输出：[-10,0,10]
  *
  * 链接：https://leetcode-cn.com/problems/all-elements-in-two-binary-search-trees
+ *
+ * -------------------------------------------------------------------------------
+ * 简单的思路：
+ * 1、全部添加到一个List中，然后Collections.sort(list); 进行排序。面试不推荐
+ * 2、放在两个list中，手动排序。类似链表相连
  */
 public class AllElementsInTwoBinarySearchTrees {
     List<Integer> list = new ArrayList();
