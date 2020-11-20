@@ -28,6 +28,8 @@ import java.util.List;
  * 节点值的范围在32位有符号整数范围内。
  *
  * 链接：https://leetcode-cn.com/problems/average-of-levels-in-binary-tree
+ * -----------------------------------------------------------------------
+ * 简单层次遍历即可
  */
 public class AverageofLevelsinBinaryTree {
     List<Double> list = new ArrayList();
