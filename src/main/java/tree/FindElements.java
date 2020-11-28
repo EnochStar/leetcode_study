@@ -37,16 +37,4 @@ public class FindElements {
         }
         return root.val == target || find(root.left,target) || find(root.right,target);
     }
-
-    public static void main(String[] args) {
-        TreeNode treeNode = new TreeNode(-1);
-        treeNode.left = new TreeNode(-1);
-        treeNode.right = new TreeNode(-1);
-        treeNode.left.left = new TreeNode(-1);
-        treeNode.left.right = new TreeNode(-1);
-        FindElements findElements = new FindElements(treeNode);
-        System.out.println(findElements.find(1));
-        System.out.println(findElements.find(3));
-        System.out.println(findElements.find(5));
-    }
 }
