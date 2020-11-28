@@ -11,7 +11,6 @@ package tree;
  * 输出：18
  * 解释：图中红色节点的祖父节点的值为偶数，蓝色节点为这些红色节点的祖父节点。
  *
- *
  * 来源：力扣（LeetCode）
  * 链接：https://leetcode-cn.com/problems/sum-of-nodes-with-even-valued-grandparent
  * 著作权归领扣网络所有。商业转载请联系官方授权，非商业转载请注明出处。
