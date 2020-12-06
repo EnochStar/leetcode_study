@@ -46,7 +46,7 @@ public class CombinationSum {
         return res;
     }
     public void backtrack(int[] candidates, int idx, int target, LinkedList<Integer> arr) {
-        if(sum(arr) > target || (idx == target && sum(arr) != target)) {
+        if(sum(arr) > target || (idx == candidates.length && sum(arr) != target)) {
             return;
         }
         if(sum(arr) == target) {
