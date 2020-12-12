@@ -32,9 +32,4 @@ public class PermutationSimple {
             flag[i] = false;
         }
     }
-
-    public static void main(String[] args) {
-        PermutationSimple permutationSimple = new PermutationSimple();
-        permutationSimple.permutation("qwe");
-    }
 }
