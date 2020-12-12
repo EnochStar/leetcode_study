@@ -1,9 +1,6 @@
 package backtrack;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 
 /**
  * @author FL8000
@@ -32,16 +29,25 @@ public class Permutation {
     Set<String> set = new HashSet<>();
     public String[] permutation(String S) {
         char[] c = S.toCharArray();
-        backtrack(c,new StringBuilder(),0);
+        boolean[] flag = new boolean[c.length];
+        Arrays.sort(c);
+        backtrack(c,new StringBuilder(),flag);
         return set.toArray(new String[set.size()]);
     }
-    void backtrack(char[] c,StringBuilder sb,int index){
+    void backtrack(char[] c,StringBuilder sb,boolean[] flag){
         if (sb.length() == c.length) {
             set.add(sb.toString());
+            return;
         }
-        for (int i = 0;i < c.length;i++) {
+        for (int i = 0; i < c.length;i++) {
+            if(flag[i]){
+                continue;
+            }
+            if(i > 0 && c[i] == c[i-1] && !flag[i-1]) continue;
             sb.append(c[i]);
-            backtrack(c,sb,index + 1);
+            flag[i] = true;
+            backtrack(c,sb,flag);
+            flag[i] = false;
             sb.deleteCharAt(sb.length()-1);
         }
     }
