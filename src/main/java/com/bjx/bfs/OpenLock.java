@@ -48,38 +48,81 @@ import java.util.*;
  * @date 2020/12/14 9:21
  */
 public class OpenLock {
-    public int openLock(String[] deadends, String target) {
-        Set<String> set = new HashSet(Arrays.asList(deadends));
+    // public int openLock(String[] deadends, String target) {
+    //     Set<String> set = new HashSet(Arrays.asList(deadends));
+    //     Set<String> visited = new HashSet<>();
+    //     Queue<String> queue = new LinkedList<>();
+    //     String start = "0000";
+    //     int depth = 0;
+    //     if (set.contains(start)) return 0;
+    //     queue.add(start);
+    //     while (!queue.isEmpty()) {
+    //         int sz = queue.size();
+    //         for (int i = 0;i < sz; i++) {
+    //             String cur = queue.poll();
+    //             // 包含在deadends时 就无法更改锁
+    //             if (set.contains(cur)) continue;
+    //             if (cur.equals(target)) return depth;
+    //             for (int j = 0;j < 4;j++) {
+    //                 String fis = plusOne(cur,j);
+    //                 if (!visited.contains(fis)) {
+    //                     queue.add(fis);
+    //                     visited.add(fis);
+    //                 }
+    //                 String sec = minusOne(cur,j);
+    //                 if (!visited.contains(sec)) {
+    //                     queue.add(sec);
+    //                     visited.add(sec);
+    //                 }
+    //             }
+    //         }
+    //         depth++;
+    //     }
+    //     return -1;
+    // }
+    int openLock(String[] deadends, String target) {
+        Set<String> deads = new HashSet<>(Arrays.asList(deadends));
+        Set<String> q1 = new HashSet<>();
+        Set<String> q2 = new HashSet<>();
         Set<String> visited = new HashSet<>();
-        Queue<String> queue = new LinkedList<>();
-        String start = "0000";
-        int depth = 0;
-        if (set.contains(start)) return 0;
-        queue.add(start);
-        while (!queue.isEmpty()) {
-            int sz = queue.size();
-            for (int i = 0;i < sz; i++) {
-                String cur = queue.poll();
-                // 包含在deadends时 就无法更改锁
-                if (set.contains(cur)) continue;
-                if (cur.equals(target)) return depth;
-                for (int j = 0;j < 4;j++) {
-                    String fis = plusOne(cur,j);
-                    if (!visited.contains(fis)) {
-                        queue.add(fis);
-                        visited.add(fis);
-                    }
-                    String sec = minusOne(cur,j);
-                    if (!visited.contains(sec)) {
-                        queue.add(sec);
-                        visited.add(sec);
-                    }
+
+        int step = 0;
+        q1.add("0000");
+        q2.add(target);
+
+        while (!q1.isEmpty() && !q2.isEmpty()) {
+            // 哈希集合在遍历的过程中不能修改，用 temp 存储扩散结果
+            Set<String> temp = new HashSet<>();
+
+            /* 将 q1 中的所有节点向周围扩散 */
+            for (String cur : q1) {
+                /* 判断是否到达终点 */
+                if (deads.contains(cur))
+                    continue;
+                if (q2.contains(cur))
+                    return step;
+                visited.add(cur);
+
+                /* 将一个节点的未遍历相邻节点加入集合 */
+                for (int j = 0; j < 4; j++) {
+                    String up = plusOne(cur, j);
+                    if (!visited.contains(up))
+                        temp.add(up);
+                    String down = minusOne(cur, j);
+                    if (!visited.contains(down))
+                        temp.add(down);
                 }
             }
-            depth++;
+            /* 在这里增加步数 */
+            step++;
+            // temp 相当于 q1
+            // 这里交换 q1 q2，下一轮 while 就是扩散 q2
+            q1 = q2;
+            q2 = temp;
         }
         return -1;
     }
+
     public String plusOne(String s,int index) {
         char[] c = s.toCharArray();
         if (c[index] == '9') c[index] = '0';
