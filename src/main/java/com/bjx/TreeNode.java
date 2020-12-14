@@ -2,7 +2,7 @@ package com.bjx;
 
 /**
  * @author EnochStar
- * @title: com.zx.TreeNode
+ * @title: com.bjx.TreeNode
  * @projectName leetcode_study
  * @description: 二叉树结构提供
  * @date 2020/12/14 8:59
