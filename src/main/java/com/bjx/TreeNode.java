@@ -4,7 +4,7 @@ package com.bjx;
  * @author EnochStar
  * @title: com.zx.TreeNode
  * @projectName leetcode_study
- * @description: TODO
+ * @description: 二叉树结构提供
  * @date 2020/12/14 8:59
  */
 public class TreeNode {
