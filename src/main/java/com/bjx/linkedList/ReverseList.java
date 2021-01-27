@@ -34,14 +34,12 @@ public class ReverseList {
 
     // ตÝน้
     public ListNode reverseList(ListNode head) {
-        return reverseList(head,null);
-    }
-    public ListNode reverseList(ListNode head,ListNode newHead) {
-        if (head == null) {
-            return newHead;
+        if (head == null || head.next == null) {
+            return head;
         }
-        ListNode next = head.next;
-        head.next = newHead;
-        return reverseList(next,head);
+        ListNode newHead = reverseList(head.next);
+        head.next.next = head;
+        head.next = null;
+        return newHead;
     }
 }
