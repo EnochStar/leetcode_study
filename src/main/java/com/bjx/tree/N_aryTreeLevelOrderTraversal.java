@@ -59,4 +59,22 @@ public class N_aryTreeLevelOrderTraversal {
         }
         return res;
     }
+    // 递归
+    public List<List<Integer>> levelOrder(Node root) {
+        List<List<Integer>> res = new ArrayList();
+        levelOrderDFS(root,0,res);
+        return res;
+    }
+    public void levelOrderDFS(Node node,int depth,List<List<Integer>> res) {
+        if(node == null) {
+            return;
+        }
+        if(depth == res.size()) {
+            res.add(new ArrayList());
+        }
+        res.get(depth).add(node.val);
+        for(Node children : node.children) {
+            levelOrderDFS(children,depth + 1,res);
+        }
+    }
 }
