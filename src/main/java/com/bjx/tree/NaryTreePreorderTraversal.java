@@ -2,6 +2,7 @@ package com.bjx.tree;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Stack;
 
 /**
  * @author FL8000
@@ -46,4 +47,21 @@ public class NaryTreePreorderTraversal {
         }
         return list;
     }
+    // 迭代
+    // List<Integer> list = new ArrayList();
+    // public List<Integer> preorder(Node root) {
+    //     if(root == null) {
+    //         return list;
+    //     }
+    //     Stack<Node> stack = new Stack();
+    //     stack.add(root);
+    //     while(!stack.isEmpty()) {
+    //         Node nodes = stack.pop();
+    //         list.add(nodes.val);
+    //         for(int i = nodes.children.size() - 1;i >= 0;i--) {
+    //             stack.add(nodes.children.get(i));
+    //         }
+    //     }
+    //     return list;
+    // }
 }
