@@ -1,5 +1,10 @@
 package com.bjx.bfs;
 
+import java.util.ArrayDeque;
+import java.util.Deque;
+import java.util.HashSet;
+import java.util.Set;
+
 /**
  * @author EnochStar
  * @title: SlidingPuzzle
